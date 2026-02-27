@@ -4,129 +4,737 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Streaming - Download</title>
+    <title>Top Streaming — Download</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+        rel="stylesheet">
     <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         :root {
-            --primary: #E50914;
-            --dark: #0f0f0f;
-            --glass: rgba(255, 255, 255, 0.05);
+            --red: #E50914;
+            --red-glow: rgba(229, 9, 20, 0.3);
+            --bg: #070707;
+            --surface: #0f0f0f;
+            --surface2: #161616;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-red: rgba(229, 9, 20, 0.25);
+            --text: #f0f0f0;
+            --muted: #555;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: var(--dark);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
-            background: radial-gradient(circle at top right, #300, transparent),
-                radial-gradient(circle at bottom left, #100, transparent),
-                #050505;
         }
 
-        .container {
+        .bg-fx {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 70% 50% at 90% 10%, rgba(229, 9, 20, 0.1) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 5% 90%, rgba(229, 9, 20, 0.06) 0%, transparent 60%);
+        }
+
+        .bg-fx::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            z-index: 1;
             text-align: center;
-            padding: 3rem;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            max-width: 600px;
-            width: 90%;
-            animation: fadeIn 1s ease-out;
+            padding: 5rem 2rem 3.5rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        @keyframes fadeIn {
+        .hero-logo {
+            width: 80px;
+            height: 80px;
+            filter: drop-shadow(0 0 20px rgba(229, 9, 20, 0.7));
+            margin-bottom: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-6px)
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--red);
+            border: 1px solid var(--border-red);
+            padding: 0.3rem 0.9rem;
+            border-radius: 2px;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--red);
+            box-shadow: 0 0 8px var(--red);
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0.25
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: var(--red);
+        }
+
+        .hero-desc {
+            max-width: 480px;
+            margin: 0 auto 1.75rem;
+            color: #777;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: inline-flex;
+            gap: 2.5rem;
+            font-size: 0.78rem;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+        }
+
+        .hero-stats span strong {
+            color: #ccc;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        /* MAIN */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        /* CARD */
+        .card {
+            background: var(--surface);
+            padding: 2rem 1.75rem;
+            position: relative;
+            transition: background 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            animation: cardIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .card:hover {
+            background: var(--surface2);
+        }
+
+        .card.featured {
+            background: #0d0000;
+        }
+
+        .card.featured:hover {
+            background: #120000;
+        }
+
+        .card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--red), transparent);
+        }
+
+        .card:nth-child(1) {
+            animation-delay: .05s
+        }
+
+        .card:nth-child(2) {
+            animation-delay: .12s
+        }
+
+        .card:nth-child(3) {
+            animation-delay: .19s
+        }
+
+        .card:nth-child(4) {
+            animation-delay: .26s
+        }
+
+        .card:nth-child(5) {
+            animation-delay: .33s
+        }
+
+        .card:nth-child(6) {
+            animation-delay: .40s
+        }
+
+        @keyframes cardIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(16px)
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0)
             }
         }
 
-        .logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 1.5rem;
-            filter: drop-shadow(0 0 20px rgba(229, 9, 20, 0.5));
+        .card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #fff, #888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
         }
 
-        p {
-            color: #aaa;
-            margin-bottom: 2.5rem;
+        .card.featured .card-icon {
+            background: rgba(229, 9, 20, 0.1);
+            border-color: var(--border-red);
+        }
+
+        .card-os-badge {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+        }
+
+        .card-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .card-sub {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: 300;
             line-height: 1.6;
         }
 
-        .dl-btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .chip {
+            font-size: 0.68rem;
+            letter-spacing: 0.03em;
+            padding: 0.25rem 0.65rem;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            color: #666;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            margin-top: auto;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            padding: 0.82rem 1.25rem;
+            border-radius: 3px;
+            font-size: 0.88rem;
+            font-weight: 600;
             text-decoration: none;
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 1.2rem;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.4);
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: 0.01em;
         }
 
-        .dl-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(229, 9, 20, 0.6);
-            background: #ff0f1e;
+        .btn-primary {
+            background: var(--red);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.3);
         }
 
-        .info {
-            margin-top: 2rem;
-            font-size: 0.8rem;
-            color: #555;
+        .btn-primary:hover {
+            background: #ff0a1a;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 28px rgba(229, 9, 20, 0.45);
         }
 
-        .badge {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            color: #eee;
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.04);
+            color: #aaa;
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.07);
+            color: #ddd;
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--red);
+            border: 1px solid var(--border-red);
+        }
+
+        .btn-outline:hover {
+            background: rgba(229, 9, 20, 0.08);
+            border-color: var(--red);
+        }
+
+        .btn-label {
+            text-align: left;
+            line-height: 1.15;
+        }
+
+        .btn-label span {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 300;
+            opacity: 0.65;
+            margin-top: 1px;
+        }
+
+        /* Notice */
+        .notice {
+            margin-top: 2.5rem;
+            padding: 1.25rem 1.5rem;
+            background: rgba(229, 9, 20, 0.05);
+            border: 1px solid var(--border-red);
+            border-radius: 4px;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .notice-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .notice-text {
+            font-size: 0.82rem;
+            color: #888;
+            line-height: 1.65;
+        }
+
+        .notice-text strong {
+            color: #bbb;
+            font-weight: 500;
+        }
+
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        footer a {
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 3.5rem 1.25rem 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            main {
+                padding: 2.5rem 1.25rem 4rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <img src="https://raw.githubusercontent.com/icardogoat/topstreaming/main/img/logo.png" alt="Logo" class="logo">
-        <div class="badge">Versão 1.0.3 (Estável)</div>
-        <h1>Top Streaming</h1>
-        <p>A melhor plataforma de entretenimento para Windows. Assista canais ao vivo, filmes e séries com qualidade 4K
-            e zero travamentos.</p>
 
-        <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="dl-btn">
-            Baixar para Windows
-        </a>
+    <div class="bg-fx"></div>
 
-        <div class="info">
-            Sistema Seguro • Atualizações Automáticas • Suporte 24h
+    <header class="hero">
+        <img src="https://raw.githubusercontent.com/icardogoat/topstreaming/main/img/logo.png" alt="Top Streaming"
+            class="hero-logo" onerror="this.style.display='none'">
+        <div class="hero-badge">v1.0.3 — Estável</div>
+        <h1>Top <span>Streaming</span></h1>
+        <p class="hero-desc">
+            Canais ao vivo, filmes e séries em qualidade 4K.<br>Disponível para todos os seus dispositivos.
+        </p>
+        <div class="hero-stats">
+            <span><strong>4K</strong>Qualidade</span>
+            <span><strong>6</strong>Plataformas</span>
+            <span><strong>24h</strong>Suporte</span>
         </div>
-    </div>
+    </header>
+
+    <main>
+        <div class="section-label">Escolha sua plataforma</div>
+
+        <div class="grid">
+
+            <!-- Windows -->
+            <div class="card featured">
+                <div class="card-top">
+                    <div class="card-icon">
+                        <svg width="26" height="26" viewBox="0 0 88 88" fill="none">
+                            <path d="M0 12.4L35.7 7.8V42.2L0 42.5Z" fill="white" />
+                            <path d="M39.7 7.2L88 0.5V41.7L39.7 42Z" fill="white" />
+                            <path d="M0 46L0.1 76.3L35.7 80.6V45.7Z" fill="white" />
+                            <path d="M39.7 46.1V80.9L88 87.5V46.1Z" fill="white" />
+                        </svg>
+                    </div>
+                    <span class="card-os-badge">Recomendado</span>
+                </div>
+                <div>
+                    <div class="card-title">Windows</div>
+                    <div class="card-sub">Windows 10 e 11 — 64 bits<br>Instalador completo com updates automáticos</div>
+                </div>
+                <div class="chips">
+                    <span class="chip">Win 10 / 11</span>
+                    <span class="chip">64-bit</span>
+                    <span class="chip">Auto Update</span>
+                </div>
+                <div class="btn-group">
+                    <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="btn btn-primary">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round">
+                            <path d="M12 15V3m0 12l-4-4m4 4l4-4" />
+                            <path d="M2 17l.621 2.485A2 2 0 004.56 21h14.878a2 2 0 001.94-1.515L22 17" />
+                        </svg>
+                        <div class="btn-label">Baixar para Windows<span>.exe · Instalador</span></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Celular -->
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-icon">📱</div>
+                    <span class="card-os-badge">Android</span>
+                </div>
+                <div>
+                    <div class="card-title">Celular</div>
+                    <div class="card-sub">Android 7.0 ou superior<br>Compatível com todos os smartphones</div>
+                </div>
+                <div class="chips">
+                    <span class="chip">Android 7+</span>
+                    <span class="chip">ARM / ARM64</span>
+                    <span class="chip">APK</span>
+                </div>
+                <div class="btn-group">
+                    <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="btn btn-primary">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round">
+                            <path d="M12 15V3m0 12l-4-4m4 4l4-4" />
+                            <path d="M2 17l.621 2.485A2 2 0 004.56 21h14.878a2 2 0 001.94-1.515L22 17" />
+                        </svg>
+                        <div class="btn-label">Baixar APK<span>Instalação manual · Android</span></div>
+                    </a>
+                    <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="btn btn-secondary">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <div class="btn-label">Google Play<span>Em breve</span></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- TV Box -->
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-icon">📦</div>
+                    <span class="card-os-badge">Android TV</span>
+                </div>
+                <div>
+                    <div class="card-title">TV Box</div>
+                    <div class="card-sub">Android TV Box com Android 7+<br>H96, X96, MX Player e similares</div>
+                </div>
+                <div class="chips">
+                    <span class="chip">Android TV 7+</span>
+                    <span class="chip">4K HDR</span>
+                    <span class="chip">Controle Remoto</span>
+                </div>
+                <div class="btn-group">
+                    <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="btn btn-primary">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round">
+                            <path d="M12 15V3m0 12l-4-4m4 4l4-4" />
+                            <path d="M2 17l.621 2.485A2 2 0 004.56 21h14.878a2 2 0 001.94-1.515L22 17" />
+                        </svg>
+                        <div class="btn-label">Baixar APK TV Box<span>Otimizado para TV · Android</span></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- TV Stick -->
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-icon">🔌</div>
+                    <span class="card-os-badge">Fire OS / Android</span>
+                </div>
+                <div>
+                    <div class="card-title">TV Stick</div>
+                    <div class="card-sub">Fire TV Stick, Xiaomi Stick<br>e outros dongles HDMI Android</div>
+                </div>
+                <div class="chips">
+                    <span class="chip">Fire TV</span>
+                    <span class="chip">Xiaomi Stick</span>
+                    <span class="chip">HDMI Dongle</span>
+                </div>
+                <div class="btn-group">
+                    <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="btn btn-primary">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round">
+                            <path d="M12 15V3m0 12l-4-4m4 4l4-4" />
+                            <path d="M2 17l.621 2.485A2 2 0 004.56 21h14.878a2 2 0 001.94-1.515L22 17" />
+                        </svg>
+                        <div class="btn-label">Baixar APK TV Stick<span>Fire TV / Xiaomi</span></div>
+                    </a>
+                    <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="btn btn-secondary">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <div class="btn-label">Como instalar no Fire Stick<span>Tutorial passo a passo</span></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Smart TV -->
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-icon">📺</div>
+                    <span class="card-os-badge">Tizen / webOS</span>
+                </div>
+                <div>
+                    <div class="card-title">Smart TV</div>
+                    <div class="card-sub">Samsung (Tizen) e LG (webOS)<br>Via navegador ou app dedicado</div>
+                </div>
+                <div class="chips">
+                    <span class="chip">Samsung</span>
+                    <span class="chip">LG</span>
+                    <span class="chip">Tizen / webOS</span>
+                </div>
+                <div class="btn-group">
+                    <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="btn btn-outline">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                        </svg>
+                        <div class="btn-label">Abrir no Navegador da TV<span>Samsung / LG Smart TV</span></div>
+                    </a>
+                    <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="btn btn-secondary">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <div class="btn-label">Como instalar na Smart TV<span>Tutorial passo a passo</span></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Linux / Ubuntu -->
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-icon">🐧</div>
+                    <span class="card-os-badge">Linux</span>
+                </div>
+                <div>
+                    <div class="card-title">Linux / Ubuntu</div>
+                    <div class="card-sub">Ubuntu 20.04+, Debian, Mint, Fedora<br>Pacotes .deb, .rpm e AppImage</div>
+                </div>
+                <div class="chips">
+                    <span class="chip">Ubuntu 20+</span>
+                    <span class="chip">Debian</span>
+                    <span class="chip">Fedora</span>
+                    <span class="chip">AppImage</span>
+                </div>
+                <div class="btn-group">
+                    <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="btn btn-primary">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round">
+                            <path d="M12 15V3m0 12l-4-4m4 4l4-4" />
+                            <path d="M2 17l.621 2.485A2 2 0 004.56 21h14.878a2 2 0 001.94-1.515L22 17" />
+                        </svg>
+                        <div class="btn-label">Baixar .deb<span>Ubuntu / Debian / Mint</span></div>
+                    </a>
+                    <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="btn btn-secondary">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round">
+                            <path d="M12 15V3m0 12l-4-4m4 4l4-4" />
+                            <path d="M2 17l.621 2.485A2 2 0 004.56 21h14.878a2 2 0 001.94-1.515L22 17" />
+                        </svg>
+                        <div class="btn-label">Baixar AppImage<span>Funciona em qualquer distro</span></div>
+                    </a>
+                    <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="btn btn-secondary">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round">
+                            <path d="M12 15V3m0 12l-4-4m4 4l4-4" />
+                            <path d="M2 17l.621 2.485A2 2 0 004.56 21h14.878a2 2 0 001.94-1.515L22 17" />
+                        </svg>
+                        <div class="btn-label">Baixar .rpm<span>Fedora / CentOS / RHEL</span></div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="notice">
+            <div class="notice-icon">ℹ️</div>
+            <div class="notice-text">
+                <strong>Todos os links levam ao repositório oficial no GitHub.</strong>
+                Baixe apenas de fontes oficiais. Dúvidas sobre instalação? Acesse os tutoriais e suporte disponíveis no
+                repositório.
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        © 2025 Top Streaming · Todos os direitos reservados ·
+        <a href="https://github.com/icardogoat/topstreaming" target="_blank">GitHub Oficial</a>
+    </footer>
+
 </body>
 
 </html>
