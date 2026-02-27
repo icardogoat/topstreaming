@@ -1,25 +1,70 @@
 #EXTM3U
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/icardogoat/topstreaming/main/img/logo.png" group-title="Canais Demo",Top Streaming Live (Demo)
-https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/280px-PNG_transparency_demonstration_1.png" group-title="📺 CANAIS | Notícias",CNN Internacional (Demo)
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
 
-#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/A7Yyc7YpZf6O9L6p9Mv9X6XoXvX.jpg" group-title="Filmes Demo",Big Buck Bunny
-http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Camponotus_flavomarginatus_ant.jpg/320px-Camponotus_flavomarginatus_ant.jpg" group-title="📺 CANAIS | Notícias",BBC News (Demo)
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4
 
-#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/7WsyChvRStvS0vN07Xv30Q92pID.jpg" group-title="Filmes Demo",Sintel
-http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Bikesgonewild.jpg/320px-Bikesgonewild.jpg" group-title="📺 CANAIS | Entretenimento",Canal Entretenimento 1
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4
 
-#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/8kNru7S9v3pkq1rY6ICj6ws61p8.jpg" group-title="Filmes Demo",Elephants Dream
-http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Stonehenge.jpg/320px-Stonehenge.jpg" group-title="📺 CANAIS | Entretenimento",Canal Entretenimento 2
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4
 
-#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/69Sns8WoYnST6v9ogvYpA68Yp9n.jpg" group-title="Filmes Demo",Tears of Steel
-http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/320px-Good_Food_Display_-_NCI_Visuals_Online.jpg" group-title="📺 CANAIS | Esportes",ESPN Demo
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/icardogoat/topstreaming/main/img/logo.png" group-title="Canais Demo",Top Streaming Live (Demo)
-https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_Gate_Bridge_from_Battery_Spencer.jpg/320px-Golden_Gate_Bridge_from_Battery_Spencer.jpg" group-title="📺 CANAIS | Esportes",SportTV Demo
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4
 
-#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/v9jqG9X6XoXvXpA68Yp9n69Sns8.jpg" group-title="Séries Demo",Teste Série Ep 01
-http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Simple_triangle.svg/200px-Simple_triangle.svg.png" group-title="⚽ JOGOS | JOGOS DO DIA",Flamengo x Palmeiras
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
 
-#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/v9jqG9X6XoXvXpA68Yp9n69Sns8.jpg" group-title="Séries Demo",Teste Série Ep 02
-http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoy.mp4
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Felis_silvestris_silvestris_small_gradual_decrease.png/200px-Felis_silvestris_silvestris_small_gradual_decrease.png" group-title="⚽ JOGOS | JOGOS DO DIA",Real Madrid x Barcelona
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/El_Capitan_view_from_Sentinel_Dome.jpg/320px-El_Capitan_view_from_Sentinel_Dome.jpg" group-title="🎬 FILMES | Ação",Big Buck Bunny
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Adaptative_streaming_overview_-_2018.png/320px-Adaptative_streaming_overview_-_2018.png" group-title="🎬 FILMES | Ação",For Bigger Blazes
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Big_Buck_Bunny_poster.jpg/220px-Big_Buck_Bunny_poster.jpg" group-title="🎬 FILMES | Aventura",Elephant's Dream
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/The_Piper%27s_Son%2C_by_Kate_Greenaway.jpg/200px-The_Piper%27s_Son%2C_by_Kate_Greenaway.jpg" group-title="🎬 FILMES | Aventura",For Bigger Escapes
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/320px-Tsunami_by_hokusai_19th_century.jpg" group-title="🎬 FILMES | Comédia",Subaru Outback (Demo)
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_waterfall.jpg/220px-Shaqi_waterfall.jpg" group-title="🎬 FILMES | Comédia",VW GTI Review (Demo)
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Blender_logo_no_text.svg/200px-Blender_logo_no_text.svg.png" group-title="🎬 FILMES | Documentários",We Are Going on Bullrun
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/320px-American_Beaver.jpg" group-title="🎬 FILMES | Documentários",What Car Can You Get
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/YellowLabradorLooking_new.jpg/320px-YellowLabradorLooking_new.jpg" group-title="🍿 SERIE | Drama",Série Demo EP1
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/320px-A_small_cup_of_coffee.JPG" group-title="🍿 SERIE | Drama",Série Demo EP2
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/320px-Cat03.jpg" group-title="🍿 SERIE | Comédia",Série Comédia EP1
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Above_Gotham.jpg/320px-Above_Gotham.jpg" group-title="🍿 SERIE | Comédia",Série Comédia EP2
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/24701-nature-natural-beauty.jpg/320px-24701-nature-natural-beauty.jpg" group-title="♦️AREA DO CLIENTE | Novidades",Destaque 1 - Big Buck Bunny
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/200px-HTML5_logo_and_wordmark.svg.png" group-title="♦️AREA DO CLIENTE | Novidades",Destaque 2 - Elephants Dream
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Big_Buck_Bunny_poster.jpg/220px-Big_Buck_Bunny_poster.jpg" group-title="♦️AREA DO CLIENTE | Novidades",Destaque 3 - For Bigger Blazes
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
