@@ -1,0 +1,25 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/icardogoat/topstreaming/main/img/logo.png" group-title="Canais Demo",Top Streaming Live (Demo)
+https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
+
+#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/A7Yyc7YpZf6O9L6p9Mv9X6XoXvX.jpg" group-title="Filmes Demo",Big Buck Bunny
+http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+
+#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/7WsyChvRStvS0vN07Xv30Q92pID.jpg" group-title="Filmes Demo",Sintel
+http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4
+
+#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/8kNru7S9v3pkq1rY6ICj6ws61p8.jpg" group-title="Filmes Demo",Elephants Dream
+http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
+
+#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/69Sns8WoYnST6v9ogvYpA68Yp9n.jpg" group-title="Filmes Demo",Tears of Steel
+http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/icardogoat/topstreaming/main/img/logo.png" group-title="Canais Demo",Top Streaming Live (Demo)
+https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
+
+#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/v9jqG9X6XoXvXpA68Yp9n69Sns8.jpg" group-title="Séries Demo",Teste Série Ep 01
+http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
+
+#EXTINF:-1 tvg-logo="https://image.tmdb.org/t/p/w500/v9jqG9X6XoXvXpA68Yp9n69Sns8.jpg" group-title="Séries Demo",Teste Série Ep 02
+http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoy.mp4
