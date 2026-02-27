@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Streaming - Download</title>
+    <style>
+        :root {
+            --primary: #E50914;
+            --dark: #0f0f0f;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--dark);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: radial-gradient(circle at top right, #300, transparent),
+                radial-gradient(circle at bottom left, #100, transparent),
+                #050505;
+        }
+
+        .container {
+            text-align: center;
+            padding: 3rem;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 20px rgba(229, 9, 20, 0.5));
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: #aaa;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .dl-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.4);
+        }
+
+        .dl-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(229, 9, 20, 0.6);
+            background: #ff0f1e;
+        }
+
+        .info {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://raw.githubusercontent.com/icardogoat/topstreaming/main/img/logo.png" alt="Logo" class="logo">
+        <div class="badge">Versão 1.0.3 (Estável)</div>
+        <h1>Top Streaming</h1>
+        <p>A melhor plataforma de entretenimento para Windows. Assista canais ao vivo, filmes e séries com qualidade 4K
+            e zero travamentos.</p>
+
+        <a href="https://github.com/icardogoat/topstreaming/releases/latest" class="dl-btn">
+            Baixar para Windows
+        </a>
+
+        <div class="info">
+            Sistema Seguro • Atualizações Automáticas • Suporte 24h
+        </div>
+    </div>
+</body>
+
+</html>
