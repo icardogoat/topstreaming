@@ -1,6 +1,6 @@
 {
-    "version": "1.0.9",
-    "downloadUrl": "https://github.com/icardogoat/topstreaming/releases/download/v1.0.9/TopStreaming-Setup-1.0.9.exe",
+    "version": "1.1.0",
+    "downloadUrl": "https://github.com/icardogoat/topstreaming/releases/download/v1.1.0/TopStreaming-Setup-1.1.0.exe",
     "mandatory": true,
     "notes": "Busca global entre todas as categorias, controle parental melhorado e correções de estabilidade."
 }
